@@ -79,7 +79,8 @@ body {
 
 /* =============== HEADER =============== */
 header {
-  border-bottom: 1px solid rgba(46, 47, 66, 0.08);
+  /* border-bottom: -1px solid rgba(46, 47, 66, 0.08); */
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -108,6 +109,8 @@ header {
 }
 
 .main-menu-link {
+  display: block;
+
   text-decoration: none;
 
   font-weight: 500;
@@ -138,6 +141,8 @@ header {
 }
 
 .header-contacts a {
+  display: block;
+
   color: var(--secondary-color);
   font-weight: 400;
   font-size: 16px;
@@ -347,13 +352,15 @@ footer {
 }
 
 .values-subtitle {
-  padding-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .values-icons-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--light-color);
   height: 112px;
-  padding: 24px 100px;
   border-radius: 4px;
 
   margin-bottom: 8px;
@@ -459,6 +466,8 @@ footer {
 
   border: 1px solid var(--company-color);
   border-radius: 4px;
+
+  transition: border-color var(--transition-duration--timing-f);
 }
 
 .customers-list-icons {
@@ -491,13 +500,13 @@ footer {
 }
 
 .filter-btn {
-  border-color: transparent;
+  border: 1px solid var(--tertiary-color);
   border-radius: 4px;
 
   padding: 8px 16px;
 
   color: var(--select-color);
-  background-color: var(--tertiary-color);
+  background-color: var(--light-color);
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
@@ -510,6 +519,7 @@ footer {
 
   transition: color var(--transition-duration--timing-f),
     background-color var(--transition-duration--timing-f),
+    border-color var(--transition-duration--timing-f),
     box-shadow var(--transition-duration--timing-f);
 }
 
@@ -517,6 +527,7 @@ footer {
 .filter-btn:focus {
   color: var(--bcg-color-font);
   background-color: var(--select-color);
+  border-color: transparent;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
@@ -554,7 +565,6 @@ footer {
 .services-types:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
     0px 2px 1px rgba(46, 47, 66, 0.08);
-
 }
 
 .services-types:hover .overlay,
@@ -572,9 +582,9 @@ footer {
   margin-bottom: 8px;
 }
 
-.wrapper-overlay{
-position: relative;
-overflow: hidden;
+.wrapper-overlay {
+  position: relative;
+  overflow: hidden;
 }
 
 .overlay {
@@ -587,36 +597,36 @@ overflow: hidden;
   padding: 40px 32px;
 
   font-size: 16px;
-line-height: 1.5;
-color: var(--light-color);
-letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--light-color);
+  letter-spacing: 0.02em;
 
-background-color: var(--bt-color);
+  background-color: var(--bt-color);
 
-transform: translateY(100%);
-transition: transform var(--transition-duration--timing-f);
+  transform: translateY(100%);
+  transition: transform var(--transition-duration--timing-f);
 }
 
-
-.backdrop{
+.backdrop {
   position: fixed;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
 
-  background-color: rgba(46, 47, 66, 0.4);;
+  background-color: rgba(46, 47, 66, 0.4);
 
-  transition: opasity var(--transition-duration--timing-f);
+  transition: opacity var(--transition-duration--timing-f),
+    visibility var(--transition-duration--timing-f);
 }
 
-.backdrop.is-hidden{
+.backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
 
-.modal-window{
+.modal-window {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -625,15 +635,16 @@ transition: transform var(--transition-duration--timing-f);
 
   min-width: 408px;
   min-height: 576px;
-  background-color: #FCFCFC;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
 
-.close-btn{
-position: absolute;
-top: 24px;
-right: 24px;
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
 
   padding: 8px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -642,9 +653,8 @@ right: 24px;
   cursor: pointer;
 }
 
-.close-img{
+.close-img {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
